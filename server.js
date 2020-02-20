@@ -12,7 +12,7 @@ const sendUserError = (msg, res) => {
     return;
 };
 
-let player = [
+let players = [
     {
         name: 'Lionel Messi',
         rank: 5,
