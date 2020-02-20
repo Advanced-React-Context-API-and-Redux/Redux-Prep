@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { postPlayer } from "../actions"
 
+
+
 const PlayerForm = (props) => {
 
     const [player, setPlayer] = useState({
@@ -13,40 +15,45 @@ const PlayerForm = (props) => {
     const submitHandler = e => {
         e.preventDefault();
         props.postPlayer(player);
+        document.getElementById('playerForm').reset();
     }
 
     const inputHandler = e => {
-        setPlayer({ ...player, [e.target.name]: e.target.value })
+        e.preventDefault();
+        setPlayer({ ...player, [e.target.name]: e.target.value });
     };
 
     return(
-        <div>
-            <form>
+        <div className="form">
+            <form id="playerForm">
                 <input 
                     type="text"
                     name="name"
                     label="name"
-                    placeholder="Player Name"
+                    placeholder="Lionel Messi"
                     value={props.name}
                     onChange={inputHandler}
+                    className="input"
                 />
                 <input 
                     type="text"
                     name="rank"
                     label="rank"
-                    placeholder="Player Rank"
+                    placeholder="1"
                     value={props.rank}
                     onChange={inputHandler}
+                    className="input"
                 />
                 <input 
                     type="text"
                     name="nickname"
                     label="nickname"
-                    placeholder="Player Nickname"
+                    placeholder="La Pulga"
                     value={props.nickname}
                     onChange={inputHandler}
+                    className="input"
                 />
-                <button onClick={submitHandler}>Add a player</button>
+                <button onClick={submitHandler} className="btn">Add a player</button>
             </form>
         </div>
     )

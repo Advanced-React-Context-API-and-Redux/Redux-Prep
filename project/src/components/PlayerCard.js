@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 const PlayerCard = props => {
     console.log(`Card props`, props)
     return(
-        <div>
+        <div className="card">
             <h2>{props.player.name}</h2>
             <h3>{props.player.rank}</h3>
             <h3>{props.player.nickname}</h3>
