@@ -1,13 +1,13 @@
 const express = require('express');
 const cors = require('cors');
-const port = 3333;
+const port = 8888;
 
 const server = express();
 server.use(express.json());
 server.use(cors());
 
 const sendUserError = (msg, res) => {
-    res.stats(422);
+    res.status(422);
     res.json({ Error: msg });
     return;
 };
@@ -46,7 +46,7 @@ server.post('/players', (req, res) => {
     }
 
     players.push(newPlayer);
-    plyerId++;
+    playerId++;
     res.json(players);
 });
 
